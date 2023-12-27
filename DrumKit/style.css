@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #F7F7F7;
+    background-image: url(/JavaScript30/DrumKit/background.jpg);
+    font-family: 'Wellfleet', monospace;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.drumkit {
+    display: flex;
+}
+
+.key {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 3px solid #212121;
+    transition: all 0.07s;
+    font-size: 1.8rem;
+    padding: 30px;
+    margin-bottom: 8px;
+}
+
+.playing {
+    transform: scale(1.12);
+    border-color: rgb(255, 255, 0);
+    box-shadow: 0 0 1rem #ffc800;
+}
+
+.instrument {
+    margin: 20px;
+    text-align: center;
+}
+
+label {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
