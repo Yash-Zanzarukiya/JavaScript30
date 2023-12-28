@@ -11,8 +11,11 @@ function playAudio(keycode){
 }
 
 function removeTransition(obj){
-    if (obj.propertyName !=='transform')
-        return;
+
+    //not required as only transform property is in transition but following is good practice as in css there may multiple transitions.
+    // if (obj.propertyName !=='transform')
+    //     return;
+    
     this.classList.remove('playing');
 }
 

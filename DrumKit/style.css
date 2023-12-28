@@ -6,7 +6,7 @@
 
 body {
     color: #F7F7F7;
-    background-image: url(/JavaScript30/DrumKit/background.jpg);
+    background-image: url(/JavaScript30/DrumKit/Sounds-Images/background.jpg);
     font-family: 'Wellfleet', monospace;
 }
 
@@ -28,7 +28,7 @@ body {
     height: 100px;
     background-color: rgb(0, 0, 0, 0.5);
     border: 3px solid #212121;
-    transition: all 0.07s;
+    transition:transform 0.07s;
     font-size: 1.8rem;
     padding: 30px;
     margin-bottom: 8px;
