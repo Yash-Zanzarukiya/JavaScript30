@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #212121;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e); 
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            height: 410px;
+            width: 410px;
+            border-radius: 400px;
+            border: 16px solid #f7f7f7;
+        }
+
+        .clock{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        .hand{
+            transform: rotate(-90deg);
+            background-color: #f7f7f7;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0%;
+            transition: transform 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+            border-radius: 20px 20px 20px 20px;
+        }
+        
+        #hour{
+            width: 110px;
+            height: 11px;
+        }
+        #minute{
+            width: 162px;
+            height: 7px;
+        }
+        #second{
+            width: 161px;
+            height: 4.5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+            <div id="hour" class="hand"></div>
+            <div id="minute" class="hand"></div>
+            <div id="second" class="hand"></div>
+        </div>
+    </div>
+    <script src="/JavaScript30/Analog-Clock/script.js"></script>
+</body>
+</html>
