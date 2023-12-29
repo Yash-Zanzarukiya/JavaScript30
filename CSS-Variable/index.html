@@ -9,76 +9,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
     <style>
+
         :root {
             --blur-value: 0px;
-            --border-width: 4px;
-            --border-color: #FF0000;
+            --border-width: 8px;
+            --border-color: #5900FF;
         }
 
-        #picture {
-            border: var(--border-width) solid var(--border-color);
-            filter: blur(var(--blur-value));
-        }
-
+        
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
+        
         body {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             background-color: #212121;
+            background: url(https://images.unsplash.com/photo-1524666643752-b381eb00effb?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
-
+        
         .container {
-            width: 1000px;
-            height: 800px;
-            background-color: #ffffff;
+            border: 10px solid var(--border-color);
+            border-radius: 10px;
+            width: 60%;
+            height: 80%;
+            background-color: #ffffffd1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
         }
-
-        .inputs {
-            display: flex;
-            justify-content: space-evenly;
-        }
-
+        
         span {
-            margin: 30px;
+            margin: 0px 30px;
         }
-
+        
         label {
             font-size: 2rem;
         }
-    </style>
+
+        #picture {
+            border: var(--border-width) solid var(--border-color);
+            filter: blur(var(--blur-value));
+            height: 350px;
+        }
+        </style>
 </head>
 
 <body>
     <div class="container">
         <h1 style="font-size: 2.5rem; font-weight: bolder;">Changing CSS Variable Using <b
-                style="font-family: 'Wellfleet', monospace; color: var(--border-color);">JavaScript</b></h1>
-        <div class="inputs">
+            style="font-family: 'Wellfleet', monospace; color: var(--border-color);">JavaScript</b></h1>
+            <div class="inputs">
             <span>
                 <label for="width">Spacing : </label>
-                <input type="range" name="spacing" id="width">
+                <input type="range" name="width" id="width" value="8" min="0" max="30">
             </span>
             <span>
                 <label for="blur">Blur : </label>
-                <input type="range" name="blur" id="blur">
+                <input type="range" name="blur" id="blur" value="0" min="0" max="8">
             </span>
             <span>
                 <label for="color">Color : </label>
-                <input type="color" name="color" id="color" value="#FF0000">
+                <input type="color" name="color" id="color" value="#5900FF">
             </span>
         </div>
-        <div>
-            <img src="/JavaScript30/CSS-Variable/Images/image.jpg" alt="image" height="350px" id="picture">
+        <div style="height: 400px; display: flex; justify-content: center; align-items: center;">
+            <img src="/JavaScript30/CSS-Variable/Images/image.jpg" alt="image" id="picture">
         </div>
     </div>
     <script src="/JavaScript30/CSS-Variable/script.js"></script>
