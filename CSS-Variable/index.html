@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,80 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blur-value: 0px;
+            --border-width: 4px;
+            --border-color: #FF0000;
+        }
+
+        #picture {
+            border: var(--border-width) solid var(--border-color);
+            filter: blur(var(--blur-value));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #212121;
+        }
+
+        .container {
+            width: 1000px;
+            height: 800px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .inputs {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        span {
+            margin: 30px;
+        }
+
+        label {
+            font-size: 2rem;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Changing CSS Variable Using <b style="font-family: 'Wellfleet', monospace;">JavaScript</b></h1>
+        <h1 style="font-size: 2.5rem; font-weight: bolder;">Changing CSS Variable Using <b
+                style="font-family: 'Wellfleet', monospace; color: var(--border-color);">JavaScript</b></h1>
         <div class="inputs">
-            <label for="spacing"></label>
-            <input type="range" name="spacing" id="spacing">
-            <label for="blur"></label>
-            <input type="range" name="blur" id="blur">
-            <label for="color"></label>
-            <input type="color" name="color" id="color">
+            <span>
+                <label for="width">Spacing : </label>
+                <input type="range" name="spacing" id="width">
+            </span>
+            <span>
+                <label for="blur">Blur : </label>
+                <input type="range" name="blur" id="blur">
+            </span>
+            <span>
+                <label for="color">Color : </label>
+                <input type="color" name="color" id="color" value="#FF0000">
+            </span>
         </div>
         <div>
-            <img src="/JavaScript30/CSS-Variable/Images/image.jpg" alt="image">
+            <img src="/JavaScript30/CSS-Variable/Images/image.jpg" alt="image" height="350px" id="picture">
         </div>
     </div>
     <script src="/JavaScript30/CSS-Variable/script.js"></script>
 </body>
+
 </html>
