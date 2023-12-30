@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #212121;
+            color: #f7f7f7;
+            font-family: 'Wellfleet', monospace;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .pannels {
+            flex: 1;
+            width: 100%;
+
+            background: url(/DrumKit/Sounds-Images/background.jpg);
+            opacity: 0.8;
+            border: 4px solid green;
+            font-size: 3rem;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            transition: flex 0.5s ease-in;
+        }
+
+        .opened {
+            flex: 4;
+        }
+
+        .pannels > *{
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease-in,font-size 0.5s ease-in;;                
+        }
+
+        .pannels :first-child{transform: translateY(-100%);}
+        .pannels.opened :first-child {transform: translateY(0); font-size: 3rem;}
+        
+        .pannels.opened :nth-child(2) {font-size: 4.5rem;}
+
+        .pannels :last-child {transform: translateY(100%);}
+        .pannels.opened :last-child {transform: translateY(0); font-size: 3rem;}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="pannels">
+            <p class="text">krsna</p>
+            <p class="text">krsna</p>
+            <p class="text">krsna</p>
+        </div>
+        <div class="pannels">
+            <p class="text">krsna</p>
+            <p class="text middle">krsna</p>
+            <p class="text">krsna</p>
+        </div>
+        <div class="pannels">
+            <p class="text">krsna 1</p>
+            <p class="text middle">krsna 2 </p>
+            <p class="text">krsna 3</p>
+        </div>
+        <div class="pannels">
+            <p class="text">krsna</p>
+            <p class="text middle">krsna</p>
+            <p class="text">krsna</p>
+        </div>
+        <div class="pannels">
+            <p class="text">krsna</p>
+            <p class="text middle">krsna</p>
+            <p class="text">krsna</p>
+        </div>
+    </div>
+    <script>
+
+        let pannels = document.querySelectorAll('.pannels');
+
+        function updateClass() {
+            this.classList.toggle('opened');
+        }
+
+        pannels.forEach(item => item.addEventListener('click', updateClass));
+
+    </script>
+</body>
+
+</html>
