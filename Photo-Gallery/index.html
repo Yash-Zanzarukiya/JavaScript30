@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
     <style>
-
         * {
             padding: 0;
             margin: 0;
@@ -19,7 +18,7 @@
         body {
             background-color: #212121;
             color: #f7f7f7;
-            font-family: 'Wellfleet', monospace;
+            font-family:  monospace;
         }
 
         .container {
@@ -33,70 +32,101 @@
             flex: 1;
             width: 100%;
 
-            background: url(/DrumKit/Sounds-Images/background.jpg);
             opacity: 0.8;
-            border: 4px solid green;
-            font-size: 3rem;
+            font-size: 1rem;
+            -webkit-text-stroke: 0.8px black;
+
 
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
-            transition: flex 0.5s ease-in;
+            transition: flex 0.8s cubic-bezier(0.61, -0.19, 0.7, -0.11);
+        }
+
+        .middle {
+            font-size: 3.3rem;
+            -webkit-text-stroke: 2px black;
         }
 
         .opened {
-            flex: 4;
+            flex: 2.2
         }
 
-        .pannels > *{
+        .pannels>* {
+            text-align: center;
             flex-grow: 1;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.5s ease-in,font-size 0.5s ease-in;;                
+            transition: transform 0.8s cubic-bezier(0.61, -0.19, 0.7, -0.11), font-size 0.8s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
         }
 
-        .pannels :first-child{transform: translateY(-100%);}
-        .pannels.opened :first-child {transform: translateY(0); font-size: 3rem;}
-        
-        .pannels.opened :nth-child(2) {font-size: 4.5rem;}
+        .pannels :first-child {
+            transform: translateY(-100%);
+        }
 
-        .pannels :last-child {transform: translateY(100%);}
-        .pannels.opened :last-child {transform: translateY(0); font-size: 3rem;}
+        .pannels.opened :first-child {
+            transform: translateY(0);
+            font-size: 3rem;
+            background-color: #21212194;
+        }
 
+        .pannels.opened :nth-child(2) {
+            font-size: 4.5rem;
+        }
 
+        .pannels :last-child {
+            transform: translateY(100%);
+        }
+
+        .pannels.opened :last-child {
+            transform: translateY(0);
+            font-size: 2rem;
+            background-color: #21212194;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="pannels">
-            <p class="text">krsna</p>
-            <p class="text">krsna</p>
-            <p class="text">krsna</p>
+        <div class="pannels"
+            style="background: url(https://www.iskconchowpatty.com/wp-content/uploads/2020/02/Lord-Narasimha-Deva.jpg);">
+            <p class="text">Most Aggresive and Fearfull Incarnation </p>
+            <p class="text middle">Lord <br>Narsimha Dev</p>
+            <p class="text">
+                Narasimha, the man-lion incarnation of Lord Vishnu, symbolizes divine protection and the triumph of good
+                over evil.</p>
         </div>
-        <div class="pannels">
-            <p class="text">krsna</p>
+        <div class="pannels"
+            style="background: url(https://www.iskconchowpatty.com/wp-content/uploads/2020/02/Lord-Ramachandra1.jpg);">
+            <p class="text">The Ideal Man and King</p>
+            <p class="text middle">Lord <br>Ramchandra</p>
+            <p class="text">Lord Ramachandra, the seventh incarnation of Lord Vishnu, lies in his embodiment of
+                righteousness, duty, and ideal kingship.</p>
+        </div>
+        <div class="pannels"
+            style="background: no-repeat center/100% url(https://nilayashokshah.files.wordpress.com/2016/08/52.jpg); background-size: cover;">
+            <p class="text">The Supreme Personality of Goadhead</p>
             <p class="text middle">krsna</p>
-            <p class="text">krsna</p>
+            <p class="text">Words are not Enough about him but his this 'vigraha' Explain everything</p>
         </div>
-        <div class="pannels">
-            <p class="text">krsna 1</p>
-            <p class="text middle">krsna 2 </p>
-            <p class="text">krsna 3</p>
+        <div class="pannels"
+            style="background: url(https://www.iskconchowpatty.com/wp-content/uploads/2020/02/Lord-Shiva.jpg);">
+            <p class="text">The Supreme Vaishnav</p>
+            <p class="text middle">ShivJi</p>
+            <p class="text">Lord Shiva, lies in his role as the supreme Vaishnav, the destroyer of evil, and the
+                embodiment of cosmic power.</p>
         </div>
-        <div class="pannels">
-            <p class="text">krsna</p>
-            <p class="text middle">krsna</p>
-            <p class="text">krsna</p>
-        </div>
-        <div class="pannels">
-            <p class="text">krsna</p>
-            <p class="text middle">krsna</p>
-            <p class="text">krsna</p>
+        <div class="pannels"
+            style="background: url(https://www.iskconchowpatty.com/wp-content/uploads/2020/02/Lord-Varaha-Deva.jpg);">
+            <p class="text">Third Incarnation of Shree Hari</p>
+            <p class="text middle">Lord <br>Varah Dev</p>
+            <p class="text">Varaha Deva, an avatar of Lord Vishnu, is in his manifestation as a boar. Varaha rescued the
+                Earth goddess.
+            </p>
         </div>
     </div>
     <script>
