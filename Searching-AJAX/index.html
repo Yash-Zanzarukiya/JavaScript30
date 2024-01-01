@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Wellfleet&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FBAB7E;
+            background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+            color: #F7F7F7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Special Elite';
+        }
+
+        .container {
+            width: 50%;
+            height: 60%;
+        }
+
+        input[type='text'] {
+            width: 100%;
+            height: 80px;
+            border: 4px solid #212121a4;
+            font: 2em sans-serif;
+            text-align: center;
+            margin-bottom: 6px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        ul {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            border: 2px solid #212121a4;
+        }
+
+        li {
+            color: #212121;
+            background-color: #F7F7F7;
+            font-size: 1.8rem;
+            padding: 10px 15px;
+            /* border: 2px solid goldenrod; */
+            transition: background 0.2s;
+            display: flex;
+            justify-content: space-between;
+            text-transform: capitalize;
+            border-bottom: 1px solid #D8D8D8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+        }
+
+        .hilight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="search"><input type="text" id="searchbox" placeholder="Type here to Search"></div>
+        <ul class="list">
+        </ul>
+    </div>
+    <script>
+
+        const url = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+        let cities = [];
+        fetch(url)
+            .then(blob => blob.json())
+            .then(responseData => [...responseData])
+            .then(data => cities.push(...data));
+
+        function searchData(cityName, array) {
+
+            let regex = new RegExp(cityName, 'gi');
+            let result = array.filter(item => item.city.match(regex) || item.state.match(regex));
+            return result;
+        }
+
+        let searchbox = document.querySelector('#searchbox');
+        let list = document.querySelector('.list');
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function displayData() {
+
+            let str = searchbox.value;
+
+            if (str.length == 0) {
+                list.innerHTML = '';
+                return;
+            }
+
+            let matchCities = searchData(str, cities);
+            let html;
+            if (matchCities.length > 0) {
+                html = matchCities.map(item => {
+                    console.log("this : " + this);
+                    let regex = new RegExp(str, 'gi');
+                    let city = item.city.replace(regex, `<span class= "hilight">${this.value}</span>`);
+                    let state = item.state.replace(regex, `<span class= "hilight">${this.value}</span>`);
+                    return `<li>
+                                <span class="name"> ${city}, ${state}</span>
+                                <span class="population">${numberWithCommas(item.population)}</span>
+                            </li>`;
+                }
+                ).join('');
+            }
+            else { html = `<li style='color: red'>Sorry No Matches Found</li>` }
+
+            console.log("HTML : " + html);
+
+            list.innerHTML = html;
+        }
+
+        searchbox.addEventListener('change', displayData);
+        searchbox.addEventListener('keyup', displayData);
+    </script>
+</body>
+
+</html>
