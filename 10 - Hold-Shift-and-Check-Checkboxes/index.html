@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkboxes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,26 +16,63 @@
         }
 
         body {
+            background: url(https://wallpapers.iskcondesiretree.com/wp-content/wallpapers/iskcon_amritsar/017-Sri_Sri_Radha_Gokulananda_Close_up.jpg);
+            background-size: cover;
             height: 100vh;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #212121;
+            color: #D1E2FF;
         }
 
         .container {
-            width: 50%;
+            width: fit-content;
             height: fit-content;
             display: flex;
-            align-items: center;
+            align-items: start;
             justify-content: center;
             flex-direction: column;
-            padding: 10px;
-            background-color: aliceblue;
+            background-color: rgba(240, 248, 255, 0.229);
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #212121;
+
+
         }
-        .item{
+
+        input:checked+label {
+            color: yellow;
+            color: rgb(44, 216, 44);
+            text-decoration: underline;
+        }
+
+        .item {
+            width: 100%;
             font-size: 2rem;
+            border-bottom: 1px solid #212121;
+            padding: 10px;
+        }
+
+        label {
+            margin: 0;
+            padding: 20px;
+            border-left: 1px solid #212121;
+            text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000;
+            font-family: 'Wellfleet', monospace;
+
+        }
+
+        .cbox {
+            margin: 20px;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 1em solid #212121;
+            border-radius: 0.15em;
         }
     </style>
 </head>
@@ -41,43 +81,43 @@
     <div class="container">
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="1">
-            <label>value</label>
+            <label>Chanting Hare Krishna</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="2">
-            <label>value</label>
+            <label>Offer Prayers Daily</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="3">
-            <label>value</label>
+            <label>Participate in SanKirtan</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="4">
-            <label>value</label>
+            <label>Read Bhagavad Gita</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="5">
-            <label>value</label>
+            <label>Engage in Seva</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="6">
-            <label>value</label>
+            <label>Only Take Krishna Prasadam</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="7">
-            <label>value</label>
+            <label>Preaching Krishna Consciousness</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="8">
-            <label>value</label>
+            <label>Always Thinking of Krishna</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="9">
-            <label>value</label>
+            <label>Reading Prabhupada books</label>
         </div>
         <div class="item">
             <input type="checkbox" name="checkbox" class="cbox" value="10">
-            <label>value</label>
+            <label>Spread Love and Compassion</label>
         </div>
     </div>
     <script src="/10 - Hold-Shift-and-Check-Checkboxes/script.js"></script>
