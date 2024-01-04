@@ -6,7 +6,7 @@
 
 body {
     color: #F7F7F7;
-    background-image: url(/DrumKit/Sounds-Images/background.jpg);
+    background-image: url('/01 - DrumKit/Sounds-Images/background.jpg');
     font-family: 'Wellfleet', monospace;
 }
 
