@@ -1,85 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Player</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body{
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #212121;
-    }
-    
-  </style>
+  <link rel="stylesheet" href="/11 - Custom-Video-Player/style.css">
 </head>
+
 <body>
-  <div class="container">
-    <video src="/11 - Custom-Video-Player/652333414.mp4" width="100%" id="videoFrame" autoplay="false" ></video>
-    <div class="controlers">
-      <div style="width:100%">
-        <input type="range" class="primary-range" id="seek" min="0" max="100">
-      </div>
-      <input type="range" class="secondary-range" id="volume" min="0" max="1" step="0.05" value="0.5">
-      <input type="range" class="secondary-range" id="speed" min="0.25" max="2" step="0.25" value="1">
-      <button type="button" data-key="-10" class="buttons" id="backward-skip"><<</button>
-      <button type="button"  class="buttons" id="pause">Pause</button>
-      <button type="button" data-key="20" class="buttons" id="forward-skip">>></button>
+
+  <div class="player">
+
+    <video src="/11 - Custom-Video-Player/652333414.mp4" class="player__video viewer" id="videoFrame" autoplay="false" ></video>
+    
+    <div class="player__controls">
+      
+      <div id="seek" class="progress"><div id="curr_progress" class="progress__filled"></div></div>
+
+      <input type="range"  id="volume" class="player__slider" min="0" max="1" step="0.05" value="0.5">
+      <input type="range" id="speed" class="player__slider"  min="0.25" max="2" step="0.25" value="1">
+
+      <button type="button" data-key="-10" class="player__button" id="backward-skip"><< </button>
+      <button type="button" class="player__button toggle" id="pause">Pause</button>
+      <button type="button" data-key="20" class="player__button" id="forward-skip">>></button>
+    
     </div>
+
   </div>
 
-  <script>
-    let video = document.querySelector('#videoFrame')
-    let pause_btn = document.querySelector('#pause');
-    let back_skip_btn = document.querySelector('#backward-skip');
-    let for_skip_btn = document.querySelector('#forward-skip');
-    let volume = document.querySelector('#volume');
-    let speed = document.querySelector('#speed');
-    let seek = document.querySelector('#seek');
-
-    seek.setAttribute('max',50);
-    console.log(seek.getAttribute('max'));
-
-    function seekVideo() {
-    }
-
-    function controlVolume(eventObj) {
-      let value = eventObj.target.value;
-      video.volume = value;
-    }
-    function controlSpeed(eventObj) {
-      let value = eventObj.target.value;
-      video.speed = value;
-    }
-
-    function togglePlay(){
-      if (video.paused) {
-        video.play();
-      }else{
-        video.pause();
-      }
-    }
-
-    function seekThroughVideo(eventObj) {
-      let value = parseInt(eventObj.target.getAttribute('data-key'));
-      console.log(value);
-      video.currentTime += value;
-    }
-
-    video.addEventListener('click',togglePlay);
-    pause_btn.addEventListener('click',togglePlay);
-
-    for_skip_btn.addEventListener('click',seekThroughVideo);
-    back_skip_btn.addEventListener('click',seekThroughVideo);
-
-    volume.addEventListener('change',controlVolume);
+  <script src="/11 - Custom-Video-Player/scripts.js">
+    
   </script>
 </body>
+
 </html>
