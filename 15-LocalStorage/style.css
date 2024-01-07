@@ -1,0 +1,151 @@
+:root{
+  --black-color: rgba(0, 0, 0, 0.662);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  width: 100%;
+  background-color: #212121;
+  background: url(/15-LocalStorage/images/prasadam.jpg) center no-repeat;
+  background-size: cover;
+  font-family: 'Wellfleet', monospace;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #2121214d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu{
+  width:420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  width: fit-content;
+  height: fit-content;
+}
+
+#logo{
+  margin-bottom: 18px;
+  padding: 0px;
+  height: 160px;
+  background: rgb(0, 0, 0, 0.1);
+  border-radius: 125px;
+}
+
+.prasadams{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--black-color);
+  padding: 30px;
+  background-color: #fffefed6;
+}
+
+h1{
+  font-family: 'operator mono';
+  color:rgba(9, 10, 2, 0.968);
+}
+
+ul{
+  list-style: none;
+  font-size: 1.2rem;
+  margin: 20px 0px;
+}
+
+.plate_list input {
+  display: none;
+}
+
+.plate_list input + label:before {
+  content: "⬜️";
+  margin-right: 10px;
+}
+
+.plate_list input:checked + label:before {
+  content: "😍";
+}
+
+input[type=checkbox]{
+  height: 14px;
+  margin-right:8px;
+  cursor: pointer;
+}
+
+label{
+  cursor: pointer;
+}
+
+hr{
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--black-color);
+  margin-bottom: 12px;
+}
+
+form{
+  width: 100%;
+
+}
+
+.btns,form > * {
+  color: black;
+  background-color: #ffffffd3;
+  border: 2px solid var(--black-color);
+  font-family: 'Wellfleet', monospace;
+  padding: 7px;
+  cursor: pointer;
+}
+
+input[type=text]{
+  width: 68%;
+  cursor: text;
+}
+
+input[type=submit]{
+  width: 30%;
+}
+
+.buttons{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btns{
+  padding: 5px;
+  margin: 10px 4px 0px 4px;
+}
+
+#uncheck{
+  flex: 2;
+}
+
+#clear{
+  flex: 1;
+}
+
+#clear:hover{
+  background-color: #f9d4d4d3;
+}
+
+#check{
+  flex-grow: 1;
+}
