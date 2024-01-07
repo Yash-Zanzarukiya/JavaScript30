@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sort Without Articles</title>
+</head>
+
+<body>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+  </style>
+
+  <ul id="bands"></ul>
+
+  <script>
+    const bands = [
+      "The Madhvas Band",
+      "Receiving Values",
+      "The Hare Krishna Sang",
+      "A C Swami Prabhupada",
+      "ISKCON Inc",
+      "Guru Aashray",
+      "The Spiritual Mellows",
+      "My Aashray",
+      "Being Krishna Conciseness",
+      "Golok Times",
+      "A Vanimedia",
+      "GKD",
+      "An Art of Live",
+    ];
+
+    function strip(str) {
+      return str.replace(/^(A |The |An )/i, "").trim();
+    }
+
+    let sortedBands = bands.sort((a, b) => (strip(a) > strip(b) ? 1 : -1));
+
+    document.querySelector("ul").innerHTML = sortedBands
+      .map((bandName) => `<li>${bandName}</li>`)
+      .join("");
+  </script>
+</body>
+
+</html>
