@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video speed_bar</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #4C4C4C url('https://unsplash.it/1500/900?image=1021') ;
+      background-size: cover;
+    }
+    .container{
+      display: flex;
+      width: 55%;
+      justify-content: space-around;
+    }
+    .speed_bar{
+      border: 2px solid rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255);
+      border-radius: 40px;
+      width: 80px;
+      overflow: hidden;
+    }
+
+    video{border: 2px solid rgb(255, 255, 255);}
+
+    .curr_value{
+      background-color: rgb(255, 208, 0);
+      width: 100%;
+      height: 20%;
+      font-size: 1.2rem;
+      font-family: operator mono;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <video src="/11-Custom-Video-Player/652333414.mp4" class="video" height="500px" autoplay controls></video>
+    <div class="speed_bar">
+      <div class="curr_value">x1</div>
+    </div>
+  </div>
+  <script>
+    let video = document.querySelector('video');
+    let speed_bar = document.querySelector('.speed_bar');
+    let speed = document.querySelector('.curr_value');
+    let isMouseDown = false;
+
+    function changeSpeed(e) {
+      value = (e.pageY - e.target.offsetTop) / speed_bar.offsetHeight;
+      let min = 0.25;
+      let max = 4;
+      // let playbackRate = value * (max-min) + min;
+      let playbackRate = value * max;
+      if (playbackRate>=0.25) {
+        video.playbackRate = playbackRate.toFixed(2);
+        speed.style.height = `${(value)*100}%`;
+        speed.innerText = `x${playbackRate.toFixed(2)}`;
+      }
+      console.log(video.playbackRate.toFixed(2));
+    }
+
+
+    speed_bar.addEventListener('mousemove',changeSpeed);
+    speed_bar.addEventListener('click',changeSpeed);
+
+  </script>
+</body>
+</html>
