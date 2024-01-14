@@ -11,31 +11,33 @@ body {
   align-items: center;
   justify-content: center;
   background: #ffc600;
+  font-family: 'Wellfleet', monospace;
 }
 
 .name {
   font-size: 4rem;
   margin-bottom: 10px;
-  font-family: 'Wellfleet', monospace;
 }
 
 .game {
-  /* border: 2px solid black; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   width: 42%;
-  height: 50%;
+  height: fit-content;
+  overflow: hidden;
 }
 
 .hole {
-  width: 30%;
-  height: 45%;
+  width:170px;
+  height: 200px;
   background-color: aliceblue;
   z-index: 2;
   background: url(/30-Whack-A-Mole/dirt.svg) bottom no-repeat;
-  background-size: 90%;
+  background-size: contain;
+  flex: 25%;
+  margin: 0px 20px;
   position: relative;
   overflow: hidden;
 }
@@ -48,29 +50,53 @@ body {
   position: absolute;
   transform: scale(0.9);
   top: 100%;
-  transition: all 0.5s;
+  transition: all 0.3s;
+  z-index: -1;
 }
 
 .hole.up .mole {
   top: 0px;
+  z-index: 3;
+  cursor: pointer;
 }
 
 .score {
   font-size: 90%;
-  padding: 2px 15px;
+  padding: 8px 15px;
   margin-left: 10px;
   border: 2px solid black;
   border-radius: 4px;
   background-color: #bda654ab;
 }
 
-.start-button {
+.buttons {
   margin-top: 40px;
-  font-size: 1.5rem;
-  border-radius: 5px;
-  border: 2px solid black;
+  margin-left: 10px;
   padding: 10px 20px;
   cursor: pointer;
-  background-color: #bda654ab;
+
+  font-size: 1.5rem;
   font-family: 'Wellfleet', monospace;
+  background-color: #bda654ab;
+  border: 2px solid black;
+  border-radius: 5px;
+  transition: all 0.25s;
+}
+
+.diff-button.active{
+  background-color: #bd5454e5;
+}
+
+.highscore{
+  margin-top: 30px;
+  font-size: 1.3rem;
+  font-family: operator mono;
+}
+
+.high-score{
+  padding: 3px 8px;
+  margin-left: 10px;
+  border: 2px solid black;
+  border-radius: 2px;
+  background-color: #bda654ab;
 }

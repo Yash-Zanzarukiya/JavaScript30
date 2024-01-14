@@ -6,83 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Wellfleet&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/30-Whack-A-Mole/style.css">
+  <link rel="stylesheet" href="/30-Whack-A-Mole/style.css" />
 </head>
 
 <body>
-  <h1 class="name">WHACK-A-MOLE! <span class="score">0</span></h1>
+  <h1 class="name">WHACK-A-MOLE! <span class="score">00</span></h1>
   <div class="game">
-    <div class="hole 1">
+    <div class="hole">
       <div class="mole"></div>
     </div>
-    <div class="hole 2">
+    <div class="hole">
       <div class="mole"></div>
     </div>
-    <div class="hole 3">
+    <div class="hole">
       <div class="mole"></div>
     </div>
-    <div class="hole 4">
+    <div class="hole">
       <div class="mole"></div>
     </div>
-    <div class="hole 5">
+    <div class="hole">
       <div class="mole"></div>
     </div>
-    <div class="hole 6">
+    <div class="hole">
       <div class="mole"></div>
     </div>
   </div>
-  <button type="button" onclick="startGame()" class="start-button">Start!</button>
-  <script>
-    let moles = document.querySelectorAll('.mole');
-    let holes = document.querySelectorAll('.hole');
-    let scoreBoard = document.querySelector('.score');
-    let playTime = 10 * 1000;
-    let score = 0;
-    let last = -1;
-    let isTimeout = false;
-
-    function randomHole() {
-
-      let index = Math.floor(Math.random() * holes.length);
-      if (index != last) {
-        last = index;
-        return holes[index];
-      }
-      else
-        return randomHole();
-    }
-
-    function randomTime(min, max) {
-      let time = Math.round(Math.random() * (max - min) + min);
-      return time;
-    }
-
-    function peepMoles() {
-      let hole = randomHole();
-      let time = randomTime(200,1000)
-      hole.classList.add('up');
-      setTimeout(()=>{
-        hole.classList.remove('up');
-        if(!isTimeout)
-          peepMoles();
-      },time);
-    }
-
-    function updateScore(eventObj){
-      // if(!eventObj.isTrusted()) return;
-      console.log(eventObj);
-    }
-
-    function startGame() {
-      score = 0;
-      isTimeout = false;
-      last = -1;
-      setTimeout(()=>isTimeout = true,playTime);
-      peepMoles();
-    }
-
-    moles.forEach((mole)=>mole.addEventListener('click',updateScore))
-  </script>
+  <div class="controls">
+    <button type="button" onclick="startGame()" id="start" class="buttons">Start!</button>
+    <button type="button" onclick="stopGame()" id="stop" class="buttons">Stop</button>
+  </div>
+  <div class="difficulty">
+    <button type="button" data-min="800" data-max="1000" class="buttons diff-button">Noob</button>
+    <button type="button" data-min="600" data-max="800" class="buttons diff-button active">
+      Ordinary
+    </button>
+    <button type="button" data-min="300" data-max="600" class="buttons diff-button">Pro</button>
+    <button type="button" data-min="100" data-max="300" class="buttons diff-button">God</button>
+  </div>
+  <div class="highscore">Highest-Score :<span class="high-score">0</span></div>
+  <script src="/30-Whack-A-Mole/script.js"></script>
 </body>
 
 </html>
