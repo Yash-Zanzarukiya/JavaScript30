@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -32,21 +33,28 @@ body {
 .hole {
   width:170px;
   height: 200px;
-  background-color: aliceblue;
+  flex: 25%;
+  margin: 8px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hole::after{
+  top: 25px;
+  position: absolute;
+  display: block;
+  content: "";
+  width:100%;
+  height: 100%;
   z-index: 2;
   background: url(/30-Whack-A-Mole/dirt.svg) bottom no-repeat;
   background-size: contain;
-  flex: 25%;
-  margin: 0px 20px;
-  position: relative;
-  overflow: hidden;
+  transform: scale(0.9);
 }
 
 .mole {
   width: 100%;
   height: 100%;
-  background: url(/30-Whack-A-Mole/mole.svg) center no-repeat;
-  background-size: 50%;
   position: absolute;
   transform: scale(0.9);
   top: 100%;
@@ -54,9 +62,19 @@ body {
   z-index: -1;
 }
 
+.mole::after{
+  position: absolute;
+  display: block;
+  content: "";
+  width:100%;
+  height: 100%;
+  z-index: -1;
+  background: url(/30-Whack-A-Mole/mole.svg) center no-repeat;
+  background-size: 50%;
+}
+
 .hole.up .mole {
-  top: 0px;
-  z-index: 3;
+  top: 5px;
   cursor: pointer;
 }
 
